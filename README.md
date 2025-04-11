@@ -29,7 +29,7 @@ the message returned will indicate so by returning `?{...}` in the binded string
 ## Sample Function Calls
 
 ### Providing a Normalizing Function
-`binderFactory(v=>v.toLowerCase())({value:"My name is ${USERNAME}.", binds:{username:"Bob"}})` returns `"My name is Bob."`
+`binderFactory(b=>b.toLowerCase())({value:"My name is ${USERNAME}.", binds:{username:"Bob"}})` returns `"My name is Bob."`
 
 ### Multiple Placeholders
 `binderFactory()({value:"This is a ${func} function with ${number} templated values.", binds:{func: "binder", number: "two"}})` returns `"This is a binder function with two templated values."`

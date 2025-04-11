@@ -12,6 +12,6 @@ describe("binder", () => {
     // Multiple placeholder values
     assert.strictEqual(binderFactory()({value:"This is a ${func} function with ${number} templated values.", binds:{func: "binder", number: "two"}}), "This is a binder function with two templated values.");
     // Providing a normalization function to binderFactory()
-    assert.strictEqual(binderFactory(v=>v.toLowerCase())({value:"My name is ${USERNAME}.", binds:{username:"Bob"}}), "My name is Bob.");
+    assert.strictEqual(binderFactory(b=>b.toLowerCase())({value:"My name is ${USERNAME}.", binds:{username:"Bob"}}), "My name is Bob.");
   })
 });

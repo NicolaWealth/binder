@@ -1,7 +1,7 @@
-export const binderFactory = (bindNorm: (bind: string) => string = x => x) =>
+export const binderFactory = (bindNormalizer: (bind: string) => string = x => x) =>
   ({value, binds}: { value: string, binds?: Record<string, string> }) =>
     value.replace(/\$\{([^{}]+?)}/g, (_, ...g) => {
-      const bindName = bindNorm(g[0]);
+      const bindName = bindNormalizer(g[0]);
       return binds?.[bindName] ?? `?{${bindName}}`;
     });
 

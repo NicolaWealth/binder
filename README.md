@@ -21,10 +21,10 @@ Some common use cases include:
 * etc.
 
 # Interface
-The package exports function `binderFactory(bindNorm)` of exported type `binderType` where `bindNorm` is an optional string normalizing function which takes in a string and returns a string (i.e. `toUpperCase()`).
-`binderFactory(bindNorm)` returns a function which consumes `({value, binds})` where `value` is a template literal (i.e. a string which contains at least one expression of the form `${...}` where `...` is replaced by some placeholder string value).
+The package exports function `binderFactory(bindNormalizer)` of exported type `binderType` where `bindNormalizer` is an optional string normalizing function which takes in a string and returns a string (i.e. `toUpperCase()`).
+`binderFactory(bindNormalizer)` returns a function which consumes `({value, binds})` where `value` is a template literal (i.e. a string which contains at least one expression of the form `${...}` where `...` is replaced by some placeholder string value).
 Here `binds` is a key-value paired object which contains keys corresponding to the placeholder parts of `value` and values which will replace the placeholder parts after binding takes place. If `binds` is not provided or the appropriate key is not provided within `binds`, 
-the message returned will indicate so by returning `?{...}` in the binded string where `...` remains the original placeholder in the template literal. If a normalizing function is specified as `bindNorm`, the string function will be applied to the placeholder value before it's compared to the provided keys.
+the message returned will indicate so by returning `?{...}` in the binded string where `...` remains the original placeholder in the template literal. If a normalizing function is specified as `bindNormalizer`, the string function will be applied to the placeholder value before it's compared to the provided keys.
 
 ## Sample Function Calls
 

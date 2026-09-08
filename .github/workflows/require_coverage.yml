@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          node-version: 22
+          persist-credentials: false
       - run: npm ci
       - run: npm run cover:report
 

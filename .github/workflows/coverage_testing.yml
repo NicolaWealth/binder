@@ -56,5 +56,6 @@ jobs:
           if ! git diff --quiet codecov/badge.json; then
             git add codecov/badge.json
             git commit -m "Automated commit"
-            git -c "http.extraheader=AUTHORIZATION: bearer ${GH_TOKEN}" push origin HEAD:main
+            git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+            git push origin HEAD:main
           fi

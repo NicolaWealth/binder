@@ -15,7 +15,7 @@ jobs:
       image: node:22 
     steps:
       # Checkout Code    
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           node-version: 22
       # Install Dependencies          

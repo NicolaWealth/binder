@@ -6,6 +6,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   test:
     # Using Ubuntu
@@ -15,9 +18,9 @@ jobs:
       image: node:22 
     steps:
       # Checkout Code    
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          node-version: 22
+          persist-credentials: false
       # Install Dependencies          
       - run: npm ci
       # Run Tests      

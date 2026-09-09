@@ -6,7 +6,7 @@ export default {
     file: "dist/index.umd.js",
     format: "umd",
     name: "Binder",
-    sourcemap: "inline",
+    sourcemap: true,
     exports: "named"
   },
   plugins: [

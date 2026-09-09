@@ -11,11 +11,17 @@ export default {
   },
   plugins: [
     typescript({
-      declaration: false,
-      declarationMap: false,
-      composite: false,
-      module: "ESNext",
-      outDir: "dist"
+      tsconfigOverride: {
+        compilerOptions: {
+          declaration: false,
+          declarationMap: false,
+          composite: false,
+          module: "ESNext",
+          inlineSourceMap: false,
+          inlineSources: false,
+          sourceMap: true
+        }
+      }
     })
   ]
 };

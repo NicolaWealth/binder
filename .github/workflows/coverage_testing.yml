@@ -56,5 +56,7 @@ jobs:
           if ! git diff --quiet codecov/badge.json; then
             git add codecov/badge.json
             git commit -m "Automated commit"
-            git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
+            AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+            git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${AUTH}" \
+              push "https://github.com/${GITHUB_REPOSITORY}.git" HEAD:main
           fi
